@@ -70,6 +70,7 @@ namespace MyPdfViewerWpf
             {
                 var bytes = File.ReadAllBytes(dialog.FileName);
                 var mem = new MemoryStream(bytes);
+                Renderer.Document?.Dispose();
                 Renderer.OpenPdf(mem);
             }
         }
@@ -166,6 +167,11 @@ namespace MyPdfViewerWpf
             {
                 Search();
             }
+        }
+
+        private void DoSearch(object sender, RoutedEventArgs e)
+        {
+            Search();
         }
 
         private void Search()

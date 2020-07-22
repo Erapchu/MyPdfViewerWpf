@@ -43,7 +43,7 @@ namespace MyPdfViewerWpf.PdfiumVewer.Net
             ZoomMode = PdfViewerZoomMode.FitHeight;
             Rotate = PdfRotation.Rotate0;
             Flags = PdfRenderFlags.None;
-            PagesDisplayMode = PdfViewerPagesDisplayMode.SinglePageMode;
+            PagesDisplayMode = PdfViewerPagesDisplayMode.ContinuousMode;
             MouseWheelMode = MouseWheelMode.PanAndZoom;
             Dpi = 96;
             ScrollWidth = 50;
@@ -339,7 +339,7 @@ namespace MyPdfViewerWpf.PdfiumVewer.Net
         protected override void OnScrollChanged(ScrollChangedEventArgs e)
         {
             base.OnScrollChanged(e);
-            if (PagesDisplayMode == PdfViewerPagesDisplayMode.ContinuousMode)
+            if (PagesDisplayMode == PdfViewerPagesDisplayMode.ContinuousMode && IsDocumentLoaded)
             {
                 var startOffset = e.VerticalOffset;
                 var height = e.ViewportHeight;

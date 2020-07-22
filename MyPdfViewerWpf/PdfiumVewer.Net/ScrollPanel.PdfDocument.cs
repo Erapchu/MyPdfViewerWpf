@@ -138,6 +138,9 @@ namespace MyPdfViewerWpf.PdfiumVewer.Net
                 var extentVal = PagesDisplayMode == PdfViewerPagesDisplayMode.BookMode ? 2 : 1;
                 PageNo = Math.Min(Math.Max(PageNo + extentVal, 0), PageCount - extentVal);
 
+                //Uncomment for one page mode
+                //GotoPage(PageNo);
+
                 if (PagesDisplayMode == PdfViewerPagesDisplayMode.ContinuousMode)
                     Frames[PageNo].BringIntoView(); // scroll to current page
             }
@@ -148,6 +151,9 @@ namespace MyPdfViewerWpf.PdfiumVewer.Net
             {
                 var extentVal = PagesDisplayMode == PdfViewerPagesDisplayMode.BookMode ? 2 : 1;
                 PageNo = Math.Min(Math.Max(PageNo - extentVal, 0), PageCount - extentVal);
+
+                //Uncomment for one page mode
+                //GotoPage(PageNo);
 
                 if (PagesDisplayMode == PdfViewerPagesDisplayMode.ContinuousMode)
                     Frames[PageNo].BringIntoView(); // scroll to current page

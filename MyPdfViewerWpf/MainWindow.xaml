@@ -6,14 +6,22 @@
         xmlns:local="clr-namespace:MyPdfViewerWpf"
         xmlns:pdfViewer="clr-namespace:MyPdfViewerWpf.PdfiumVewer.Net"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="650" 
+        Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Content="Open Pdf"
-                Click="OpenPdf"/>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Content="Open Pdf"
+                    Click="OpenPdf"/>
+            <Button Content="Search"
+                    Click="DoSearch"/>
+        </StackPanel>
+        
         <pdfViewer:PdfRenderer x:Name="Renderer"
                                Grid.Row="1"/>
     </Grid>
